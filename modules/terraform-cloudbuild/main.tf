@@ -1,6 +1,6 @@
 locals {
   default_build_init  = ["init", "-backend-config=bucket=${var.state_bucket}"]
-  default_build_plan  = ["plan", "-no-color", "-input=false", "-var-file=default.tfvars", "-out=plan.tfplan"]
+  default_build_plan  = ["plan", "-no-color", "-input=false", "-out=plan.tfplan"]
   default_build_apply = ["apply", "-no-color", "-input=false", "--auto-approve", "plan.tfplan"]
 }
 
