@@ -6,7 +6,7 @@ locals {
 
 resource "google_cloudbuild_trigger" "plan" {
   project     = var.project_id
-  name        = "${var.repo_name}-plan"
+  name        = "${var.repo_name}-${var.name}-plan"
   location    = "global"
   description = "Terraform CI/CD for ${var.repo_name}. Managed by Terraform."
 
@@ -17,6 +17,8 @@ resource "google_cloudbuild_trigger" "plan" {
       branch = "^feature/(.*)$"
     }
   }
+
+  included_files = var.terraform_dir != "" ? var.terraform_dir : null
 
   build {
     step {
@@ -46,7 +48,7 @@ resource "google_cloudbuild_trigger" "plan" {
 
 resource "google_cloudbuild_trigger" "apply" {
   project     = var.project_id
-  name        = "${var.repo_name}-apply"
+  name        = "${var.repo_name}-${var.name}-plan"
   location    = "global"
   description = "Terraform CI/CD for ${var.repo_name}. Managed by Terraform."
 
@@ -57,6 +59,8 @@ resource "google_cloudbuild_trigger" "apply" {
       branch = var.branch_regex
     }
   }
+
+  included_files = var.terraform_dir != "" ? var.terraform_dir : null
 
   build {
     step {
