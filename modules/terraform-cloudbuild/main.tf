@@ -48,7 +48,7 @@ resource "google_cloudbuild_trigger" "plan" {
 
 resource "google_cloudbuild_trigger" "apply" {
   project     = var.project_id
-  name        = "${var.repo_name}-${var.name}-plan"
+  name        = "${var.repo_name}-${var.name}-apply"
   location    = "global"
   description = "Terraform CI/CD for ${var.repo_name}. Managed by Terraform."
 
