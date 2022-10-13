@@ -18,7 +18,7 @@ resource "google_cloudbuild_trigger" "plan" {
     }
   }
 
-  included_files = var.terraform_dir != "" ? [var.terraform_dir] : []
+  included_files = var.included_files
 
   build {
     step {
@@ -60,7 +60,7 @@ resource "google_cloudbuild_trigger" "apply" {
     }
   }
 
-  included_files = var.terraform_dir != "" ? [var.terraform_dir] : []
+  included_files = var.included_files
 
   build {
     step {

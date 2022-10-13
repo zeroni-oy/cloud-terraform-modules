@@ -47,3 +47,9 @@ variable "service_account" {
   type        = string
   description = "service account that CloudBuild will assume and execute from"
 }
+
+variable "included_files" {
+  type        = list(string)
+  default     = ["/"]
+  description = "Optionally Glob path for filtering included files"
+}
