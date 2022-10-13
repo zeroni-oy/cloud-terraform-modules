@@ -50,6 +50,6 @@ variable "service_account" {
 
 variable "included_files" {
   type        = list(string)
-  default     = ["/"]
+  default     = ["**"]
   description = "Optionally Glob path for filtering included files"
 }
