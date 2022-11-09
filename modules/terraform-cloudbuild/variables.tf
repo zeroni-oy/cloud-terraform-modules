@@ -53,3 +53,10 @@ variable "included_files" {
   default     = ["**"]
   description = "Optionally Glob path for filtering included files"
 }
+
+
+variable "terraform_version" {
+  type        = string
+  default     = "1.3.4"
+  description = "Version of Terraform to use in steps."
+}

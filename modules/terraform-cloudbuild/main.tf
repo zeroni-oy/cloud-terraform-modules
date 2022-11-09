@@ -22,14 +22,14 @@ resource "google_cloudbuild_trigger" "plan" {
 
   build {
     step {
-      name       = "hashicorp/terraform:1.3.0"
+      name       = "hashicorp/terraform:${var.terraform_version}"
       entrypoint = "terraform"
       args       = tolist(local.default_build_init)
       dir        = var.terraform_dir != "" ? var.terraform_dir : null
     }
 
     step {
-      name       = "hashicorp/terraform:1.3.0"
+      name       = "hashicorp/terraform:${var.terraform_version}"
       entrypoint = "terraform"
       args       = tolist(local.default_build_plan)
       dir        = var.terraform_dir != "" ? var.terraform_dir : null
@@ -64,19 +64,19 @@ resource "google_cloudbuild_trigger" "apply" {
 
   build {
     step {
-      name       = "hashicorp/terraform:1.3.0"
+      name       = "hashicorp/terraform:${var.terraform_version}"
       entrypoint = "terraform"
       args       = tolist(local.default_build_init)
       dir        = var.terraform_dir != "" ? var.terraform_dir : null
     }
     step {
-      name       = "hashicorp/terraform:1.3.0"
+      name       = "hashicorp/terraform:${var.terraform_version}"
       entrypoint = "terraform"
       args       = tolist(local.default_build_plan)
       dir        = var.terraform_dir != "" ? var.terraform_dir : null
     }
     step {
-      name       = "hashicorp/terraform:1.3.0"
+      name       = "hashicorp/terraform:${var.terraform_version}"
       entrypoint = "terraform"
       args       = tolist(local.default_build_apply)
       dir        = var.terraform_dir != "" ? var.terraform_dir : null
