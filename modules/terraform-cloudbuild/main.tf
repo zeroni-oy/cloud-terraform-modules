@@ -63,6 +63,8 @@ resource "google_cloudbuild_trigger" "apply" {
   included_files = var.included_files
 
   build {
+    timeout = "1800s"
+
     step {
       name       = "hashicorp/terraform:${var.terraform_version}"
       entrypoint = "terraform"
