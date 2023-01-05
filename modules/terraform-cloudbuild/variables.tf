@@ -22,7 +22,7 @@ variable "branch_regex" {
 variable "name" {
   type        = string
   default     = "default"
-  description = "Additional name to add to the trigger path. Useful when specifying multiple triggers with terraform_dir. (defaeults to 'default')"
+  description = "Additional name to add to the trigger path. Useful when specifying multiple triggers with terraform_dir. (defaults to 'default')"
 }
 
 variable "repo_branch" {
@@ -38,7 +38,7 @@ variable "state_bucket" {
 
 variable "terraform_dir" {
   type        = string
-  default     = "/"
+  default     = null
   description = "root directory of the terraform to trigger from"
 }
 
