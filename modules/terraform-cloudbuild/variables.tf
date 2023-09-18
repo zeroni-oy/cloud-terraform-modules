@@ -57,6 +57,6 @@ variable "included_files" {
 
 variable "terraform_version" {
   type        = string
-  default     = "1.3.4"
+  default     = "1.5.7"
   description = "Version of Terraform to use in steps."
 }
